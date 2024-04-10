@@ -13,12 +13,14 @@ try {
   console.log("Houve uma falha ao sincronizar com o banco de dados. ", erro);
 }
 app.get("/", (req, res) => {
-  return res.json({ message: "Olá Mundo!" });
+  return res.json({ message: "Seja bem Vindo a nossa API!" });
 });
+
+//CADASTRAR
 app.post("/Cadastrar", funcionarioController.FuncionarioCreate);
 
 //GET - LISTAR
-app.get("/Funcionarios", funcionarioController.FuncionarioListar);
+app.get("/Funcionarios/:id?", funcionarioController.FuncionarioListar);
 
 //PUT - UPDATE
 app.put("/Funcionarios/:id", funcionarioController.FuncionarioUpdate);
